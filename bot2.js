@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "!" ; /// البرفكس
+var prefix = "*" ; /// البرفكس
 const moment = require('moment');
 
 /// This Version is Unser Maintinance. !
@@ -172,7 +172,7 @@ client.on('ready', () => {
 		
 		
 client.on('message', msg => {
-  if(msg.content === 'السلام')
+  if(msg.content === ' السلام عليكم')
   msg.reply('وعليكم السلام و رحمه الله و بركاته')
 });
 
@@ -218,7 +218,7 @@ client.on ("guildMemberAdd", member => {
 		
 		
 client.on('message', omar => {
-var prefix = "-";
+var prefix = "*";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
@@ -239,7 +239,7 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
 });
 
 
-/// Rules 
+/// *Rules 
 
 client.on('message', message => {
             if (message.content.startsWith("Rules")) {
@@ -259,7 +259,7 @@ client.on('message', message => {
     }
 });
 
-/// !ping 
+/// *ping 
 
  client.on('message', message => {
     if(!message.channel.guild) return;
@@ -278,9 +278,9 @@ message.channel.send({embed:embed});
 });
 
 
-/// !say | !embed 
+/// *say | !embed 
 
-var prefix = "!";
+var prefix = "*";
 
 client.on('message', message => {
   if (message.author.bot) return;
@@ -291,7 +291,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-// !say
+// *say
   if (command === "say") {
           message.delete()
     message.channel.sendMessage(args.join(" ")).catch(console.error);
@@ -313,7 +313,7 @@ if (command == "embed") {
 
 
 
-/// !server 
+/// *server 
 
 client.on('message', function(msg) {
     if(msg.content.startsWith (prefix  + 'server')) {
@@ -340,7 +340,7 @@ client.on('message', function(msg) {
 
 
 client.on('message', omar => {
-var prefix = "!";
+var prefix = "*";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
@@ -375,7 +375,7 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
 
 
 
-/// !رابط
+/// *رابط
 
 const coolDown = new Set();
 client.on('message', message => {
@@ -417,10 +417,10 @@ client.on('message', message => {
   
   
   
-/// !msg   
+/// *msg   
   
 client.on("message", msg => {
-var prefix = "!";// البرفكس
+var prefix = "*";// البرفكس
 let args = msg.content.split(" ").slice(2);
 let men = msg.mentions.users.first();
 var all = msg.content.split(" ").slice(1) - msg.mentions.users.first();
@@ -480,7 +480,7 @@ client.user.setGame(`!help | System ...`,'https://www.twitch.tv/ImD3s_x');
    
 
 
-var prefix = "!" ; // البرفكس
+var prefix = "*" ; // البرفكس
  
 client.on("message", async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -510,7 +510,7 @@ client.on("message", async message => {
 
 
 
-/// !clear 
+/// *clear 
 
 client.on("message", message => {
               var args = message.content.substring(prefix.length).split(" ");
@@ -587,7 +587,7 @@ client.on('message', ( message ) => {
 });
 
 
-/// !mc | !umc 
+/// *mc | *umc 
 
 client.on('message', message => {
 
@@ -620,7 +620,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__�
 });
 
 
-/// !ban 
+/// *ban 
 
   client.on('message', message => {
   if (message.author.codes) return;
@@ -650,10 +650,10 @@ message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! 
 }
 });
 
-/// !Kick 
+/// *Kick 
 
 client.on('message', message => {
-const prefix = "!";
+const prefix = "*";
   if (message.author.kick) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -689,7 +689,7 @@ const prefix = "!";
 });
 
 
-/// !mute 
+/// *mute 
 
 client.on('message', async message => {
   let args = message.content.split(" ");
@@ -783,7 +783,7 @@ client.on('message', async message => {
 });
 
 
-/// !unMute 
+/// *unMute 
 
 client.on('message', async message => {
     let mention = message.mentions.members.first();
@@ -814,7 +814,7 @@ if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return mess
 });
 
 
-/// !new 
+/// *new 
 
 client.on("message", (message) => {
     /// ALPHA CODES
@@ -877,10 +877,10 @@ client.on("message", (message) => {
 
 
 
-/// !help
+/// *help
 
 client.on("message", message => {
- if (message.content === "!help") {
+ if (message.content === "*help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
@@ -888,32 +888,32 @@ client.on("message", message => {
                                 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
                    💎 『اوامر عامة』 💎
                         
-💎 !Help 『 عرض قائمه المساعده 』                      
-💎 !Rules 『 القوانين 』  
-💎 !Ping 『 لمعرفه سرعه البوت 』
-💎 !Server 『 معلومات عن السيرفر 』
-💎 !members 『معلومات عن الاعضاء 』
-💎 !Link  『 رابط انفايت للسيرفر 』
-💎 !تقديم
-💎 !New 『 لفتح تذكره 』
+💎 *Help 『 عرض قائمه المساعده 』                      
+💎 *Rules 『 القوانين 』  
+💎 *Ping 『 لمعرفه سرعه البوت 』
+💎 *Server 『 معلومات عن السيرفر 』
+💎 *members 『معلومات عن الاعضاء 』
+💎 *Link  『 رابط انفايت للسيرفر 』
+💎 *تقديم
+💎 *New 『 لفتح تذكره 』
                                 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
                    👑 『اوامر ادارية』 👑
-👑 !bans 『 يقولك عدد الاشخاص المبندين من السيرفر 』
-👑 !ban 『 تبنيد عضو من السيرفر 』
-👑 !kick 『 طرد عضو من السيرفر 』
-👑 !clear 『 لمسح الشات 』
-👑 !mute  『 اعطاء ميوت كتابي 』
-👑 !unmute  『 فك الميوت الكتابي 』
-👑 !Msg  『 إرسال رساله إلى شخص معين بواسطه البوت 』
-👑 !Bc  『 برودكاست ب امبيد وبدون 』
-👑 !Close  『 إقفال التذكره 』
-👑 !g  『 إنشاء قيف أوي او مسابقه 』
-👑 !Mc  『 تقفيل الشات 』
-👑 !Umc  『 فتح الشات 』
-👑 !Hide  『 إخفاء الروم 』
-👑 !Show  『 إظهار الروم 』
-👑 !say 『 إرسال رساله بواسطه البوت 』
-👑 !embed 『 إرسال رساله امبيد 』
+👑 *bans 『 يقولك عدد الاشخاص المبندين من السيرفر 』
+👑 *ban 『 تبنيد عضو من السيرفر 』
+👑 *kick 『 طرد عضو من السيرفر 』
+👑 *clear 『 لمسح الشات 』
+👑 *mute  『 اعطاء ميوت كتابي 』
+👑 *unmute  『 فك الميوت الكتابي 』
+👑 *Msg  『 إرسال رساله إلى شخص معين بواسطه البوت 』
+👑 *Bc  『 برودكاست ب امبيد وبدون 』
+👑 *Close  『 إقفال التذكره 』
+👑 *g  『 إنشاء قيف أوي او مسابقه 』
+👑 *Mc  『 تقفيل الشات 』
+👑 *Umc  『 فتح الشات 』
+👑 *Hide  『 إخفاء الروم 』
+👑 *Show  『 إظهار الروم 』
+👑 *say 『 إرسال رساله بواسطه البوت 』
+👑 *embed 『 إرسال رساله امبيد 』
                                 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 `)
 
@@ -938,7 +938,7 @@ client.on('message', message => {
 
 
 
-/// !bc 
+/// *bc 
 
 client.on('message', message => { 
    if(!message.channel.guild) return;
@@ -990,7 +990,7 @@ msg.delete();
 
 
 
-/// !Link
+/// *Link
 
   client.on('message', message => {
     if (message.content.startsWith("!Link")) {
@@ -1011,7 +1011,7 @@ message.author.send(`**مدة الرابط : يـوم
     }
 });
 
-/// !hack
+/// *hack
 
 client.on('message', message => {
     if (message.content.startsWith("!hack")) {
@@ -1046,7 +1046,7 @@ client.on('message', message => {
  });
 
  
-/// !bans
+/// *bans
 
 client.on('message', message => {
     if (message.content.startsWith("!bans")) {
@@ -1058,7 +1058,7 @@ client.on('message', message => {
 
 
 
-/// !تقديم
+/// *تقديم
 
 client.on('message', async message => {
     var command = message.content.toLowerCase().split(" ")[0];
@@ -1174,7 +1174,7 @@ client.on('message', async message => {
 
 
 
-/// !count
+/// *count
 
  client.on('message', message => {
               if (!message.channel.guild) return;
@@ -1188,7 +1188,7 @@ client.on('message', async message => {
       message.channel.send(IzRo);
     });
 
-/// !hide
+/// *hide
 
 client.on('message', message => {
         if(message.content === prefix + "hide") {
@@ -1201,7 +1201,7 @@ client.on('message', message => {
    }
   });
 
-/// !show 
+/// *show 
   
 client.on('message', message => {
         if(message.content === prefix + "show") {
@@ -1215,7 +1215,7 @@ client.on('message', message => {
   });
 
 
-/// !members
+/// *members
 
 
 client.on('message', message => {
@@ -1251,4 +1251,4 @@ client.on("guildMemberAdd", member => {
 
 
 
-client.login(process.env.BOT_TOKEN2);
+client.login(NTMxOTI2NjMyNzk4MjI0Mzg1.DxViLw.yS2JSQG8ZP4qkr3FX5jj8U41XDw);
